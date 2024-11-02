@@ -16,8 +16,10 @@ def main():
 
 def get_quote():
     """Picks a random quote from `quotes.txt`."""
-    with open('../assets/quotes.txt', 'r', encoding='utf-8') as f:
+    file_path = os.path.join(os.path.dirname(__file__), '../assets/quotes.txt')
+    with open(file_path, 'r', encoding='utf-8') as f:
         quotes = f.read()
+
     return random.choice(quotes.split('---')).strip().lower()
 
 
